@@ -1,0 +1,4438 @@
+{
+  "abi": [
+    {
+      "data": [
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "z_token",
+          "type": "felt"
+        },
+        {
+          "name": "decimals",
+          "type": "felt"
+        },
+        {
+          "name": "interest_rate_model",
+          "type": "felt"
+        },
+        {
+          "name": "collateral_factor",
+          "type": "felt"
+        },
+        {
+          "name": "borrow_factor",
+          "type": "felt"
+        },
+        {
+          "name": "reserve_factor",
+          "type": "felt"
+        },
+        {
+          "name": "flash_loan_fee",
+          "type": "felt"
+        },
+        {
+          "name": "liquidation_bonus",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "NewReserve",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "new_treasury",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "TreasuryUpdate",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "lending_accumulator",
+          "type": "felt"
+        },
+        {
+          "name": "debt_accumulator",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "AccumulatorsSync",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "lending_rate",
+          "type": "felt"
+        },
+        {
+          "name": "borrowing_rate",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "InterestRatesSync",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "limit",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "DebtLimitUpdate",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "user",
+          "type": "felt"
+        },
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "face_amount",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "Deposit",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "user",
+          "type": "felt"
+        },
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "face_amount",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "Withdrawal",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "user",
+          "type": "felt"
+        },
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "raw_amount",
+          "type": "felt"
+        },
+        {
+          "name": "face_amount",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "Borrowing",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "repayer",
+          "type": "felt"
+        },
+        {
+          "name": "beneficiary",
+          "type": "felt"
+        },
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "raw_amount",
+          "type": "felt"
+        },
+        {
+          "name": "face_amount",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "Repayment",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "liquidator",
+          "type": "felt"
+        },
+        {
+          "name": "user",
+          "type": "felt"
+        },
+        {
+          "name": "debt_token",
+          "type": "felt"
+        },
+        {
+          "name": "debt_raw_amount",
+          "type": "felt"
+        },
+        {
+          "name": "debt_face_amount",
+          "type": "felt"
+        },
+        {
+          "name": "collateral_token",
+          "type": "felt"
+        },
+        {
+          "name": "collateral_amount",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "Liquidation",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "initiator",
+          "type": "felt"
+        },
+        {
+          "name": "receiver",
+          "type": "felt"
+        },
+        {
+          "name": "token",
+          "type": "felt"
+        },
+        {
+          "name": "amount",
+          "type": "felt"
+        },
+        {
+          "name": "fee",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "FlashLoan",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "user",
+          "type": "felt"
+        },
+        {
+          "name": "token",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "CollateralEnabled",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "user",
+          "type": "felt"
+        },
+        {
+          "name": "token",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "CollateralDisabled",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "new_class_hash",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "ContractUpgraded",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "previousOwner",
+          "type": "felt"
+        },
+        {
+          "name": "newOwner",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "entry_points_by_type": {
+    "CONSTRUCTOR": [],
+    "EXTERNAL": [],
+    "L1_HANDLER": []
+  },
+  "program": {
+    "attributes": [],
+    "builtins": ["range_check"],
+    "compiler_version": "0.11.0.2",
+    "data": [
+      "0x480680017fff8000",
+      "0x47657443616c6c657241646472657373",
+      "0x400280007ffd7fff",
+      "0x482680017ffd8000",
+      "0x2",
+      "0x480280017ffd8000",
+      "0x208b7fff7fff7ffe",
+      "0x480680017fff8000",
+      "0x476574436f6e747261637441646472657373",
+      "0x400280007ffd7fff",
+      "0x482680017ffd8000",
+      "0x2",
+      "0x480280017ffd8000",
+      "0x208b7fff7fff7ffe",
+      "0x480680017fff8000",
+      "0x476574426c6f636b54696d657374616d70",
+      "0x400280007ffd7fff",
+      "0x482680017ffd8000",
+      "0x2",
+      "0x480280017ffd8000",
+      "0x208b7fff7fff7ffe",
+      "0x480680017fff8000",
+      "0x5265706c616365436c617373",
+      "0x400280007ffc7fff",
+      "0x400380017ffc7ffd",
+      "0x482680017ffc8000",
+      "0x2",
+      "0x208b7fff7fff7ffe",
+      "0x20780017fff7ffd",
+      "0x4",
+      "0x400780017fff7ffd",
+      "0x1",
+      "0x208b7fff7fff7ffe",
+      "0x480280007ffb8000",
+      "0x480280017ffb8000",
+      "0x484480017fff8000",
+      "0x2aaaaaaaaaaaab05555555555555556",
+      "0x48307fff7ffd8000",
+      "0x480280027ffb8000",
+      "0x480280037ffb8000",
+      "0x484480017fff8000",
+      "0x4000000000000088000000000000001",
+      "0x48307fff7ffd8000",
+      "0xa0680017fff8000",
+      "0xe",
+      "0x480680017fff8000",
+      "0x800000000000011000000000000000000000000000000000000000000000000",
+      "0x48287ffc80007fff",
+      "0x40307ffc7ff87fff",
+      "0x48297ffd80007ffc",
+      "0x482680017ffd8000",
+      "0x1",
+      "0x48507fff7ffe8000",
+      "0x40507ff97ff57fff",
+      "0x482680017ffb8000",
+      "0x4",
+      "0x208b7fff7fff7ffe",
+      "0xa0680017fff8000",
+      "0xc",
+      "0x480680017fff8000",
+      "0x800000000000011000000000000000000000000000000000000000000000000",
+      "0x48287ffd80007fff",
+      "0x48327fff7ffc8000",
+      "0x40307ffa7ff67fff",
+      "0x48527ffe7ffc8000",
+      "0x40507ff97ff57fff",
+      "0x482680017ffb8000",
+      "0x4",
+      "0x208b7fff7fff7ffe",
+      "0x40317ffd7ff97ffd",
+      "0x48297ffc80007ffd",
+      "0x48527fff7ffc8000",
+      "0x40507ffb7ff77fff",
+      "0x40780017fff7fff",
+      "0x2",
+      "0x482680017ffb8000",
+      "0x4",
+      "0x208b7fff7fff7ffe",
+      "0x48297ffd80007ffc",
+      "0x20680017fff7fff",
+      "0x4",
+      "0x402780017ffc7ffc",
+      "0x1",
+      "0x480a7ffb7fff8000",
+      "0x480a7ffc7fff8000",
+      "0x480a7ffd7fff8000",
+      "0x1104800180018000",
+      "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffcc",
+      "0x208b7fff7fff7ffe",
+      "0x400380007ffb7ffc",
+      "0x400380017ffb7ffd",
+      "0x482680017ffb8000",
+      "0x5",
+      "0x480280027ffb8000",
+      "0x208b7fff7fff7ffe",
+      "0x400380007ffb7ffc",
+      "0x400380017ffb7ffd",
+      "0x482680017ffb8000",
+      "0x5",
+      "0x480280047ffb8000",
+      "0x208b7fff7fff7ffe",
+      "0x480680017fff8000",
+      "0x7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "0x48287ffd80007fff",
+      "0x208b7fff7fff7ffe",
+      "0x20780017fff7ffd",
+      "0x5",
+      "0x480680017fff8000",
+      "0x0",
+      "0x208b7fff7fff7ffe",
+      "0x480680017fff8000",
+      "0x1",
+      "0x208b7fff7fff7ffe",
+      "0xa0680017fff8000",
+      "0xc",
+      "0x40780017fff7fff",
+      "0x6",
+      "0x480a7ffb7fff8000",
+      "0x480a7ffc7fff8000",
+      "0x480a7ffd7fff8000",
+      "0x1104800180018000",
+      "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffaa",
+      "0x480680017fff8000",
+      "0x1",
+      "0x208b7fff7fff7ffe",
+      "0x480a7ffb7fff8000",
+      "0x480a7ffd7fff8000",
+      "0x480a7ffc7fff8000",
+      "0x1104800180018000",
+      "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffcf",
+      "0x480680017fff8000",
+      "0x0",
+      "0x208b7fff7fff7ffe"
+    ],
+    "debug_info": null,
+    "hints": {
+      "3": [
+        {
+          "accessible_scopes": [
+            "starkware.starknet.common.syscalls",
+            "starkware.starknet.common.syscalls.get_caller_address"
+          ],
+          "code": "syscall_handler.get_caller_address(segments=segments, syscall_ptr=ids.syscall_ptr)",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 0,
+              "offset": 1
+            },
+            "reference_ids": {
+              "starkware.starknet.common.syscalls.get_caller_address.syscall_ptr": 0
+            }
+          }
+        }
+      ],
+      "10": [
+        {
+          "accessible_scopes": [
+            "starkware.starknet.common.syscalls",
+            "starkware.starknet.common.syscalls.get_contract_address"
+          ],
+          "code": "syscall_handler.get_contract_address(segments=segments, syscall_ptr=ids.syscall_ptr)",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 1,
+              "offset": 1
+            },
+            "reference_ids": {
+              "starkware.starknet.common.syscalls.get_contract_address.syscall_ptr": 1
+            }
+          }
+        }
+      ],
+      "17": [
+        {
+          "accessible_scopes": [
+            "starkware.starknet.common.syscalls",
+            "starkware.starknet.common.syscalls.get_block_timestamp"
+          ],
+          "code": "syscall_handler.get_block_timestamp(segments=segments, syscall_ptr=ids.syscall_ptr)",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 2,
+              "offset": 1
+            },
+            "reference_ids": {
+              "starkware.starknet.common.syscalls.get_block_timestamp.syscall_ptr": 2
+            }
+          }
+        }
+      ],
+      "25": [
+        {
+          "accessible_scopes": [
+            "starkware.starknet.common.syscalls",
+            "starkware.starknet.common.syscalls.replace_class"
+          ],
+          "code": "syscall_handler.replace_class(segments=segments, syscall_ptr=ids.syscall_ptr)",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 3,
+              "offset": 1
+            },
+            "reference_ids": {
+              "starkware.starknet.common.syscalls.replace_class.syscall_ptr": 3
+            }
+          }
+        }
+      ],
+      "28": [
+        {
+          "accessible_scopes": [
+            "starkware.cairo.common.math",
+            "starkware.cairo.common.math.assert_not_zero"
+          ],
+          "code": "from starkware.cairo.common.math_utils import assert_integer\nassert_integer(ids.value)\nassert ids.value % PRIME != 0, f'assert_not_zero failed: {ids.value} = 0.'",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 4,
+              "offset": 0
+            },
+            "reference_ids": {
+              "starkware.cairo.common.math.assert_not_zero.value": 4
+            }
+          }
+        }
+      ],
+      "33": [
+        {
+          "accessible_scopes": [
+            "starkware.cairo.common.math",
+            "starkware.cairo.common.math.assert_le_felt"
+          ],
+          "code": "import itertools\n\nfrom starkware.cairo.common.math_utils import assert_integer\nassert_integer(ids.a)\nassert_integer(ids.b)\na = ids.a % PRIME\nb = ids.b % PRIME\nassert a <= b, f'a = {a} is not less than or equal to b = {b}.'\n\n# Find an arc less than PRIME / 3, and another less than PRIME / 2.\nlengths_and_indices = [(a, 0), (b - a, 1), (PRIME - 1 - b, 2)]\nlengths_and_indices.sort()\nassert lengths_and_indices[0][0] <= PRIME // 3 and lengths_and_indices[1][0] <= PRIME // 2\nexcluded = lengths_and_indices[2][1]\n\nmemory[ids.range_check_ptr + 1], memory[ids.range_check_ptr + 0] = (\n    divmod(lengths_and_indices[0][0], ids.PRIME_OVER_3_HIGH))\nmemory[ids.range_check_ptr + 3], memory[ids.range_check_ptr + 2] = (\n    divmod(lengths_and_indices[1][0], ids.PRIME_OVER_2_HIGH))",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 5,
+              "offset": 0
+            },
+            "reference_ids": {
+              "starkware.cairo.common.math.assert_le_felt.a": 5,
+              "starkware.cairo.common.math.assert_le_felt.b": 6,
+              "starkware.cairo.common.math.assert_le_felt.range_check_ptr": 7
+            }
+          }
+        }
+      ],
+      "43": [
+        {
+          "accessible_scopes": [
+            "starkware.cairo.common.math",
+            "starkware.cairo.common.math.assert_le_felt"
+          ],
+          "code": "memory[ap] = 1 if excluded != 0 else 0",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 5,
+              "offset": 8
+            },
+            "reference_ids": {}
+          }
+        }
+      ],
+      "57": [
+        {
+          "accessible_scopes": [
+            "starkware.cairo.common.math",
+            "starkware.cairo.common.math.assert_le_felt"
+          ],
+          "code": "memory[ap] = 1 if excluded != 1 else 0",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 5,
+              "offset": 9
+            },
+            "reference_ids": {}
+          }
+        }
+      ],
+      "69": [
+        {
+          "accessible_scopes": [
+            "starkware.cairo.common.math",
+            "starkware.cairo.common.math.assert_le_felt"
+          ],
+          "code": "assert excluded == 2",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 5,
+              "offset": 10
+            },
+            "reference_ids": {}
+          }
+        }
+      ],
+      "78": [
+        {
+          "accessible_scopes": [
+            "starkware.cairo.common.math",
+            "starkware.cairo.common.math.assert_lt_felt"
+          ],
+          "code": "from starkware.cairo.common.math_utils import assert_integer\nassert_integer(ids.a)\nassert_integer(ids.b)\nassert (ids.a % PRIME) < (ids.b % PRIME), \\\n    f'a = {ids.a % PRIME} is not less than b = {ids.b % PRIME}.'",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 6,
+              "offset": 0
+            },
+            "reference_ids": {
+              "starkware.cairo.common.math.assert_lt_felt.a": 8,
+              "starkware.cairo.common.math.assert_lt_felt.b": 9
+            }
+          }
+        }
+      ],
+      "113": [
+        {
+          "accessible_scopes": [
+            "starkware.cairo.common.math_cmp",
+            "starkware.cairo.common.math_cmp.is_le_felt"
+          ],
+          "code": "memory[ap] = 0 if (ids.a % PRIME) <= (ids.b % PRIME) else 1",
+          "flow_tracking_data": {
+            "ap_tracking": {
+              "group": 11,
+              "offset": 0
+            },
+            "reference_ids": {
+              "starkware.cairo.common.math_cmp.is_le_felt.a": 10,
+              "starkware.cairo.common.math_cmp.is_le_felt.b": 11
+            }
+          }
+        }
+      ]
+    },
+    "identifiers": {
+      "__main__.AccumulatorsSync": {
+        "destination": "zklend.internals.Market.events.AccumulatorsSync",
+        "type": "alias"
+      },
+      "__main__.BitwiseBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin",
+        "type": "alias"
+      },
+      "__main__.Borrowing": {
+        "destination": "zklend.internals.Market.events.Borrowing",
+        "type": "alias"
+      },
+      "__main__.CollateralDisabled": {
+        "destination": "zklend.internals.Market.events.CollateralDisabled",
+        "type": "alias"
+      },
+      "__main__.CollateralEnabled": {
+        "destination": "zklend.internals.Market.events.CollateralEnabled",
+        "type": "alias"
+      },
+      "__main__.ContractUpgraded": {
+        "destination": "zklend.internals.Market.events.ContractUpgraded",
+        "type": "alias"
+      },
+      "__main__.DEBT_FLAG_FILTER": {
+        "type": "const",
+        "value": 1206167596222043702328864427173832373471562340267089208744349833415761767082
+      },
+      "__main__.DebtLimitUpdate": {
+        "destination": "zklend.internals.Market.events.DebtLimitUpdate",
+        "type": "alias"
+      },
+      "__main__.Deposit": {
+        "destination": "zklend.internals.Market.events.Deposit",
+        "type": "alias"
+      },
+      "__main__.External": {
+        "type": "namespace"
+      },
+      "__main__.External.Args": {
+        "full_name": "__main__.External.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "__main__.External.ImplicitArgs": {
+        "full_name": "__main__.External.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "__main__.External.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "__main__.External.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "__main__.FALSE": {
+        "destination": "starkware.cairo.common.bool.FALSE",
+        "type": "alias"
+      },
+      "__main__.FlashLoan": {
+        "destination": "zklend.internals.Market.events.FlashLoan",
+        "type": "alias"
+      },
+      "__main__.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "__main__.IERC20": {
+        "destination": "openzeppelin.token.erc20.IERC20.IERC20",
+        "type": "alias"
+      },
+      "__main__.IInterestRateModel": {
+        "destination": "zklend.interfaces.IInterestRateModel.IInterestRateModel",
+        "type": "alias"
+      },
+      "__main__.IPriceOracle": {
+        "destination": "zklend.interfaces.IPriceOracle.IPriceOracle",
+        "type": "alias"
+      },
+      "__main__.IZToken": {
+        "destination": "zklend.interfaces.IZToken.IZToken",
+        "type": "alias"
+      },
+      "__main__.IZklendFlashCallback": {
+        "destination": "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback",
+        "type": "alias"
+      },
+      "__main__.InterestRatesSync": {
+        "destination": "zklend.internals.Market.events.InterestRatesSync",
+        "type": "alias"
+      },
+      "__main__.Internal": {
+        "type": "namespace"
+      },
+      "__main__.Internal.Args": {
+        "full_name": "__main__.Internal.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "__main__.Internal.ImplicitArgs": {
+        "full_name": "__main__.Internal.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "__main__.Internal.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "__main__.Internal.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "__main__.Liquidation": {
+        "destination": "zklend.internals.Market.events.Liquidation",
+        "type": "alias"
+      },
+      "__main__.Math": {
+        "destination": "zklend.libraries.Math.Math",
+        "type": "alias"
+      },
+      "__main__.NewReserve": {
+        "destination": "zklend.internals.Market.events.NewReserve",
+        "type": "alias"
+      },
+      "__main__.Ownable": {
+        "destination": "openzeppelin.access.ownable.library.Ownable",
+        "type": "alias"
+      },
+      "__main__.ReentrancyGuard": {
+        "destination": "openzeppelin.security.reentrancyguard.library.ReentrancyGuard",
+        "type": "alias"
+      },
+      "__main__.Repayment": {
+        "destination": "zklend.internals.Market.events.Repayment",
+        "type": "alias"
+      },
+      "__main__.SCALE": {
+        "destination": "zklend.libraries.SafeDecimalMath.SCALE",
+        "type": "alias"
+      },
+      "__main__.SECONDS_PER_YEAR": {
+        "type": "const",
+        "value": 31536000
+      },
+      "__main__.SafeCast": {
+        "destination": "zklend.libraries.SafeCast.SafeCast",
+        "type": "alias"
+      },
+      "__main__.SafeDecimalMath": {
+        "destination": "zklend.libraries.SafeDecimalMath.SafeDecimalMath",
+        "type": "alias"
+      },
+      "__main__.SafeMath": {
+        "destination": "zklend.libraries.SafeMath.SafeMath",
+        "type": "alias"
+      },
+      "__main__.Structs": {
+        "destination": "zklend.internals.Market.structs.Structs",
+        "type": "alias"
+      },
+      "__main__.TRUE": {
+        "destination": "starkware.cairo.common.bool.TRUE",
+        "type": "alias"
+      },
+      "__main__.TreasuryUpdate": {
+        "destination": "zklend.internals.Market.events.TreasuryUpdate",
+        "type": "alias"
+      },
+      "__main__.Uint256": {
+        "destination": "starkware.cairo.common.uint256.Uint256",
+        "type": "alias"
+      },
+      "__main__.View": {
+        "type": "namespace"
+      },
+      "__main__.View.Args": {
+        "full_name": "__main__.View.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "__main__.View.ImplicitArgs": {
+        "full_name": "__main__.View.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "__main__.View.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "__main__.View.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "__main__.Withdrawal": {
+        "destination": "zklend.internals.Market.events.Withdrawal",
+        "type": "alias"
+      },
+      "__main__.assert_le_felt": {
+        "destination": "starkware.cairo.common.math.assert_le_felt",
+        "type": "alias"
+      },
+      "__main__.assert_not_zero": {
+        "destination": "starkware.cairo.common.math.assert_not_zero",
+        "type": "alias"
+      },
+      "__main__.bitwise_and": {
+        "destination": "starkware.cairo.common.bitwise.bitwise_and",
+        "type": "alias"
+      },
+      "__main__.bitwise_not": {
+        "destination": "starkware.cairo.common.bitwise.bitwise_not",
+        "type": "alias"
+      },
+      "__main__.bitwise_or": {
+        "destination": "starkware.cairo.common.bitwise.bitwise_or",
+        "type": "alias"
+      },
+      "__main__.get_block_timestamp": {
+        "destination": "starkware.starknet.common.syscalls.get_block_timestamp",
+        "type": "alias"
+      },
+      "__main__.get_caller_address": {
+        "destination": "starkware.starknet.common.syscalls.get_caller_address",
+        "type": "alias"
+      },
+      "__main__.get_contract_address": {
+        "destination": "starkware.starknet.common.syscalls.get_contract_address",
+        "type": "alias"
+      },
+      "__main__.is_le_felt": {
+        "destination": "starkware.cairo.common.math_cmp.is_le_felt",
+        "type": "alias"
+      },
+      "__main__.is_not_zero": {
+        "destination": "starkware.cairo.common.math_cmp.is_not_zero",
+        "type": "alias"
+      },
+      "__main__.oracle": {
+        "destination": "zklend.internals.Market.storage.oracle",
+        "type": "alias"
+      },
+      "__main__.raw_user_debts": {
+        "destination": "zklend.internals.Market.storage.raw_user_debts",
+        "type": "alias"
+      },
+      "__main__.replace_class": {
+        "destination": "starkware.starknet.common.syscalls.replace_class",
+        "type": "alias"
+      },
+      "__main__.reserve_count": {
+        "destination": "zklend.internals.Market.storage.reserve_count",
+        "type": "alias"
+      },
+      "__main__.reserve_indices": {
+        "destination": "zklend.internals.Market.storage.reserve_indices",
+        "type": "alias"
+      },
+      "__main__.reserve_tokens": {
+        "destination": "zklend.internals.Market.storage.reserve_tokens",
+        "type": "alias"
+      },
+      "__main__.reserves": {
+        "destination": "zklend.internals.Market.storage.reserves",
+        "type": "alias"
+      },
+      "__main__.treasury": {
+        "destination": "zklend.internals.Market.storage.treasury",
+        "type": "alias"
+      },
+      "__main__.user_flags": {
+        "destination": "zklend.internals.Market.storage.user_flags",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.Ownable": {
+        "type": "namespace"
+      },
+      "openzeppelin.access.ownable.library.Ownable.Args": {
+        "full_name": "openzeppelin.access.ownable.library.Ownable.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.access.ownable.library.Ownable.ImplicitArgs": {
+        "full_name": "openzeppelin.access.ownable.library.Ownable.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.access.ownable.library.Ownable.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "openzeppelin.access.ownable.library.Ownable.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner": {
+        "type": "namespace"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.Args": {
+        "full_name": "openzeppelin.access.ownable.library.Ownable_owner.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.ImplicitArgs": {
+        "full_name": "openzeppelin.access.ownable.library.Ownable_owner.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.Ownable_owner.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred": {
+        "type": "namespace"
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.Args": {
+        "full_name": "openzeppelin.access.ownable.library.OwnershipTransferred.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.ImplicitArgs": {
+        "full_name": "openzeppelin.access.ownable.library.OwnershipTransferred.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.SELECTOR": {
+        "type": "const",
+        "value": 553132481214675521502977957974509639062080100631756862105218886163371506175
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.OwnershipTransferred.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.assert_not_zero": {
+        "destination": "starkware.cairo.common.math.assert_not_zero",
+        "type": "alias"
+      },
+      "openzeppelin.access.ownable.library.get_caller_address": {
+        "destination": "starkware.starknet.common.syscalls.get_caller_address",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.FALSE": {
+        "destination": "starkware.cairo.common.bool.FALSE",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard": {
+        "type": "namespace"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard.Args": {
+        "full_name": "openzeppelin.security.reentrancyguard.library.ReentrancyGuard.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard.ImplicitArgs": {
+        "full_name": "openzeppelin.security.reentrancyguard.library.ReentrancyGuard.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered": {
+        "type": "namespace"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.Args": {
+        "full_name": "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.ImplicitArgs": {
+        "full_name": "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.ReentrancyGuard_entered.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "openzeppelin.security.reentrancyguard.library.TRUE": {
+        "destination": "starkware.cairo.common.bool.TRUE",
+        "type": "alias"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20": {
+        "type": "namespace"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.ALLOWANCE_SELECTOR": {
+        "type": "const",
+        "value": 863164345921111744606866654754108663958095967665259696902984674202985078753
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.APPROVE_SELECTOR": {
+        "type": "const",
+        "value": 949021990203918389843157787496164629863144228991510976554585288817234167820
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.Args": {
+        "full_name": "openzeppelin.token.erc20.IERC20.IERC20.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.BALANCEOF_SELECTOR": {
+        "type": "const",
+        "value": 1307730684388977109649524593492043083703013045633289330664425380824804018030
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.DECIMALS_SELECTOR": {
+        "type": "const",
+        "value": 134830404806214277570220174593674215737759987247891306080029841794115377321
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.ImplicitArgs": {
+        "full_name": "openzeppelin.token.erc20.IERC20.IERC20.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.NAME_SELECTOR": {
+        "type": "const",
+        "value": 1528802474226268325865027367859591458315299653151958663884057507666229546336
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.SYMBOL_SELECTOR": {
+        "type": "const",
+        "value": 944713526212149105522785400348068751682982210605126537021911324578866405028
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.TOTALSUPPLY_SELECTOR": {
+        "type": "const",
+        "value": 227334030968744315992796982100494617316223563777432855541120004521101595501
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.TRANSFERFROM_SELECTOR": {
+        "type": "const",
+        "value": 116061167288211781254449158074459916871457383008289084697957612485591092000
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.TRANSFER_SELECTOR": {
+        "type": "const",
+        "value": 232670485425082704932579856502088130646006032362877466777181098476241604910
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.call_contract": {
+        "destination": "starkware.starknet.common.syscalls.call_contract",
+        "type": "alias"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.library_call": {
+        "destination": "starkware.starknet.common.syscalls.library_call",
+        "type": "alias"
+      },
+      "openzeppelin.token.erc20.IERC20.IERC20.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "openzeppelin.token.erc20.IERC20.Uint256": {
+        "destination": "starkware.cairo.common.uint256.Uint256",
+        "type": "alias"
+      },
+      "starkware.cairo.common.bitwise.ALL_ONES": {
+        "type": "const",
+        "value": -106710729501573572985208420194530329073740042555888586719234
+      },
+      "starkware.cairo.common.bitwise.BitwiseBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin",
+        "type": "alias"
+      },
+      "starkware.cairo.common.bitwise.bitwise_and": {
+        "decorators": [],
+        "pc": 89,
+        "type": "function"
+      },
+      "starkware.cairo.common.bitwise.bitwise_and.Args": {
+        "full_name": "starkware.cairo.common.bitwise.bitwise_and.Args",
+        "members": {
+          "x": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "y": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.bitwise.bitwise_and.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.bitwise.bitwise_and.ImplicitArgs",
+        "members": {
+          "bitwise_ptr": {
+            "cairo_type": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin*",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.bitwise.bitwise_and.Return": {
+        "cairo_type": "(x_and_y: felt)",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.bitwise.bitwise_and.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.bitwise.bitwise_not": {
+        "decorators": [],
+        "pc": 101,
+        "type": "function"
+      },
+      "starkware.cairo.common.bitwise.bitwise_not.Args": {
+        "full_name": "starkware.cairo.common.bitwise.bitwise_not.Args",
+        "members": {
+          "x": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.bitwise.bitwise_not.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.bitwise.bitwise_not.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "starkware.cairo.common.bitwise.bitwise_not.Return": {
+        "cairo_type": "(not_x: felt)",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.bitwise.bitwise_not.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.bitwise.bitwise_or": {
+        "decorators": [],
+        "pc": 95,
+        "type": "function"
+      },
+      "starkware.cairo.common.bitwise.bitwise_or.Args": {
+        "full_name": "starkware.cairo.common.bitwise.bitwise_or.Args",
+        "members": {
+          "x": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "y": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.bitwise.bitwise_or.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.bitwise.bitwise_or.ImplicitArgs",
+        "members": {
+          "bitwise_ptr": {
+            "cairo_type": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin*",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.bitwise.bitwise_or.Return": {
+        "cairo_type": "(x_or_y: felt)",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.bitwise.bitwise_or.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.bool.FALSE": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.bool.TRUE": {
+        "type": "const",
+        "value": 1
+      },
+      "starkware.cairo.common.cairo_builtins.BitwiseBuiltin": {
+        "full_name": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin",
+        "members": {
+          "x": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "x_and_y": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "x_or_y": {
+            "cairo_type": "felt",
+            "offset": 4
+          },
+          "x_xor_y": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "y": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 5,
+        "type": "struct"
+      },
+      "starkware.cairo.common.cairo_builtins.EcOpBuiltin": {
+        "full_name": "starkware.cairo.common.cairo_builtins.EcOpBuiltin",
+        "members": {
+          "m": {
+            "cairo_type": "felt",
+            "offset": 4
+          },
+          "p": {
+            "cairo_type": "starkware.cairo.common.ec_point.EcPoint",
+            "offset": 0
+          },
+          "q": {
+            "cairo_type": "starkware.cairo.common.ec_point.EcPoint",
+            "offset": 2
+          },
+          "r": {
+            "cairo_type": "starkware.cairo.common.ec_point.EcPoint",
+            "offset": 5
+          }
+        },
+        "size": 7,
+        "type": "struct"
+      },
+      "starkware.cairo.common.cairo_builtins.EcPoint": {
+        "destination": "starkware.cairo.common.ec_point.EcPoint",
+        "type": "alias"
+      },
+      "starkware.cairo.common.cairo_builtins.HashBuiltin": {
+        "full_name": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "members": {
+          "result": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "x": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "y": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 3,
+        "type": "struct"
+      },
+      "starkware.cairo.common.cairo_builtins.KeccakBuiltin": {
+        "full_name": "starkware.cairo.common.cairo_builtins.KeccakBuiltin",
+        "members": {
+          "input": {
+            "cairo_type": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+            "offset": 0
+          },
+          "output": {
+            "cairo_type": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+            "offset": 8
+          }
+        },
+        "size": 16,
+        "type": "struct"
+      },
+      "starkware.cairo.common.cairo_builtins.KeccakBuiltinState": {
+        "destination": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+        "type": "alias"
+      },
+      "starkware.cairo.common.cairo_builtins.PoseidonBuiltin": {
+        "full_name": "starkware.cairo.common.cairo_builtins.PoseidonBuiltin",
+        "members": {
+          "input": {
+            "cairo_type": "starkware.cairo.common.poseidon_state.PoseidonBuiltinState",
+            "offset": 0
+          },
+          "output": {
+            "cairo_type": "starkware.cairo.common.poseidon_state.PoseidonBuiltinState",
+            "offset": 3
+          }
+        },
+        "size": 6,
+        "type": "struct"
+      },
+      "starkware.cairo.common.cairo_builtins.PoseidonBuiltinState": {
+        "destination": "starkware.cairo.common.poseidon_state.PoseidonBuiltinState",
+        "type": "alias"
+      },
+      "starkware.cairo.common.cairo_builtins.SignatureBuiltin": {
+        "full_name": "starkware.cairo.common.cairo_builtins.SignatureBuiltin",
+        "members": {
+          "message": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "pub_key": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.dict_access.DictAccess": {
+        "full_name": "starkware.cairo.common.dict_access.DictAccess",
+        "members": {
+          "key": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "new_value": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "prev_value": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 3,
+        "type": "struct"
+      },
+      "starkware.cairo.common.ec_point.EcPoint": {
+        "full_name": "starkware.cairo.common.ec_point.EcPoint",
+        "members": {
+          "x": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "y": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.hash.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "starkware.cairo.common.keccak_state.KeccakBuiltinState": {
+        "full_name": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+        "members": {
+          "s0": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "s1": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "s2": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "s3": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "s4": {
+            "cairo_type": "felt",
+            "offset": 4
+          },
+          "s5": {
+            "cairo_type": "felt",
+            "offset": 5
+          },
+          "s6": {
+            "cairo_type": "felt",
+            "offset": 6
+          },
+          "s7": {
+            "cairo_type": "felt",
+            "offset": 7
+          }
+        },
+        "size": 8,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math.FALSE": {
+        "destination": "starkware.cairo.common.bool.FALSE",
+        "type": "alias"
+      },
+      "starkware.cairo.common.math.TRUE": {
+        "destination": "starkware.cairo.common.bool.TRUE",
+        "type": "alias"
+      },
+      "starkware.cairo.common.math.assert_le_felt": {
+        "decorators": ["known_ap_change"],
+        "pc": 33,
+        "type": "function"
+      },
+      "starkware.cairo.common.math.assert_le_felt.Args": {
+        "full_name": "starkware.cairo.common.math.assert_le_felt.Args",
+        "members": {
+          "a": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "b": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math.assert_le_felt.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.math.assert_le_felt.ImplicitArgs",
+        "members": {
+          "range_check_ptr": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math.assert_le_felt.PRIME_OVER_2_HIGH": {
+        "type": "const",
+        "value": 5316911983139663648412552867652567041
+      },
+      "starkware.cairo.common.math.assert_le_felt.PRIME_OVER_3_HIGH": {
+        "type": "const",
+        "value": 3544607988759775765608368578435044694
+      },
+      "starkware.cairo.common.math.assert_le_felt.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.math.assert_le_felt.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.math.assert_le_felt.a": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math.assert_le_felt.a",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 5,
+              "offset": 0
+            },
+            "pc": 33,
+            "value": "[cast(fp + (-4), felt*)]"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math.assert_le_felt.b": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math.assert_le_felt.b",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 5,
+              "offset": 0
+            },
+            "pc": 33,
+            "value": "[cast(fp + (-3), felt*)]"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math.assert_le_felt.range_check_ptr": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math.assert_le_felt.range_check_ptr",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 5,
+              "offset": 0
+            },
+            "pc": 33,
+            "value": "[cast(fp + (-5), felt*)]"
+          },
+          {
+            "ap_tracking_data": {
+              "group": 5,
+              "offset": 8
+            },
+            "pc": 43,
+            "value": "cast([fp + (-5)] + 4, felt)"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math.assert_le_felt.skip_exclude_a": {
+        "pc": 57,
+        "type": "label"
+      },
+      "starkware.cairo.common.math.assert_le_felt.skip_exclude_b_minus_a": {
+        "pc": 69,
+        "type": "label"
+      },
+      "starkware.cairo.common.math.assert_lt_felt": {
+        "decorators": ["known_ap_change"],
+        "pc": 78,
+        "type": "function"
+      },
+      "starkware.cairo.common.math.assert_lt_felt.Args": {
+        "full_name": "starkware.cairo.common.math.assert_lt_felt.Args",
+        "members": {
+          "a": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "b": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math.assert_lt_felt.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.math.assert_lt_felt.ImplicitArgs",
+        "members": {
+          "range_check_ptr": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math.assert_lt_felt.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.math.assert_lt_felt.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.math.assert_lt_felt.a": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math.assert_lt_felt.a",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 6,
+              "offset": 0
+            },
+            "pc": 78,
+            "value": "[cast(fp + (-4), felt*)]"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math.assert_lt_felt.b": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math.assert_lt_felt.b",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 6,
+              "offset": 0
+            },
+            "pc": 78,
+            "value": "[cast(fp + (-3), felt*)]"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math.assert_not_zero": {
+        "decorators": [],
+        "pc": 28,
+        "type": "function"
+      },
+      "starkware.cairo.common.math.assert_not_zero.Args": {
+        "full_name": "starkware.cairo.common.math.assert_not_zero.Args",
+        "members": {
+          "value": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math.assert_not_zero.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.math.assert_not_zero.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math.assert_not_zero.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.math.assert_not_zero.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.math.assert_not_zero.value": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math.assert_not_zero.value",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 4,
+              "offset": 0
+            },
+            "pc": 28,
+            "value": "[cast(fp + (-3), felt*)]"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math_cmp.RC_BOUND": {
+        "type": "const",
+        "value": 340282366920938463463374607431768211456
+      },
+      "starkware.cairo.common.math_cmp.assert_le_felt": {
+        "destination": "starkware.cairo.common.math.assert_le_felt",
+        "type": "alias"
+      },
+      "starkware.cairo.common.math_cmp.assert_lt_felt": {
+        "destination": "starkware.cairo.common.math.assert_lt_felt",
+        "type": "alias"
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt": {
+        "decorators": ["known_ap_change"],
+        "pc": 113,
+        "type": "function"
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt.Args": {
+        "full_name": "starkware.cairo.common.math_cmp.is_le_felt.Args",
+        "members": {
+          "a": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "b": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.math_cmp.is_le_felt.ImplicitArgs",
+        "members": {
+          "range_check_ptr": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt.Return": {
+        "cairo_type": "felt",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt.a": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math_cmp.is_le_felt.a",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 11,
+              "offset": 0
+            },
+            "pc": 113,
+            "value": "[cast(fp + (-4), felt*)]"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt.b": {
+        "cairo_type": "felt",
+        "full_name": "starkware.cairo.common.math_cmp.is_le_felt.b",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 11,
+              "offset": 0
+            },
+            "pc": 113,
+            "value": "[cast(fp + (-3), felt*)]"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.cairo.common.math_cmp.is_le_felt.not_le": {
+        "pc": 125,
+        "type": "label"
+      },
+      "starkware.cairo.common.math_cmp.is_not_zero": {
+        "decorators": ["known_ap_change"],
+        "pc": 105,
+        "type": "function"
+      },
+      "starkware.cairo.common.math_cmp.is_not_zero.Args": {
+        "full_name": "starkware.cairo.common.math_cmp.is_not_zero.Args",
+        "members": {
+          "value": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math_cmp.is_not_zero.ImplicitArgs": {
+        "full_name": "starkware.cairo.common.math_cmp.is_not_zero.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "starkware.cairo.common.math_cmp.is_not_zero.Return": {
+        "cairo_type": "felt",
+        "type": "type_definition"
+      },
+      "starkware.cairo.common.math_cmp.is_not_zero.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.cairo.common.poseidon_state.PoseidonBuiltinState": {
+        "full_name": "starkware.cairo.common.poseidon_state.PoseidonBuiltinState",
+        "members": {
+          "s0": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "s1": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "s2": {
+            "cairo_type": "felt",
+            "offset": 2
+          }
+        },
+        "size": 3,
+        "type": "struct"
+      },
+      "starkware.cairo.common.pow.assert_le": {
+        "destination": "starkware.cairo.common.math.assert_le",
+        "type": "alias"
+      },
+      "starkware.cairo.common.pow.get_ap": {
+        "destination": "starkware.cairo.common.registers.get_ap",
+        "type": "alias"
+      },
+      "starkware.cairo.common.pow.get_fp_and_pc": {
+        "destination": "starkware.cairo.common.registers.get_fp_and_pc",
+        "type": "alias"
+      },
+      "starkware.cairo.common.registers.get_ap": {
+        "destination": "starkware.cairo.lang.compiler.lib.registers.get_ap",
+        "type": "alias"
+      },
+      "starkware.cairo.common.registers.get_fp_and_pc": {
+        "destination": "starkware.cairo.lang.compiler.lib.registers.get_fp_and_pc",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.ALL_ONES": {
+        "type": "const",
+        "value": 340282366920938463463374607431768211455
+      },
+      "starkware.cairo.common.uint256.BitwiseBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.HALF_SHIFT": {
+        "type": "const",
+        "value": 18446744073709551616
+      },
+      "starkware.cairo.common.uint256.SHIFT": {
+        "type": "const",
+        "value": 340282366920938463463374607431768211456
+      },
+      "starkware.cairo.common.uint256.Uint256": {
+        "full_name": "starkware.cairo.common.uint256.Uint256",
+        "members": {
+          "high": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "low": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.cairo.common.uint256.assert_in_range": {
+        "destination": "starkware.cairo.common.math.assert_in_range",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.assert_le": {
+        "destination": "starkware.cairo.common.math.assert_le",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.assert_nn_le": {
+        "destination": "starkware.cairo.common.math.assert_nn_le",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.assert_not_zero": {
+        "destination": "starkware.cairo.common.math.assert_not_zero",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.bitwise_and": {
+        "destination": "starkware.cairo.common.bitwise.bitwise_and",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.bitwise_or": {
+        "destination": "starkware.cairo.common.bitwise.bitwise_or",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.bitwise_xor": {
+        "destination": "starkware.cairo.common.bitwise.bitwise_xor",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.get_ap": {
+        "destination": "starkware.cairo.common.registers.get_ap",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.get_fp_and_pc": {
+        "destination": "starkware.cairo.common.registers.get_fp_and_pc",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.is_le": {
+        "destination": "starkware.cairo.common.math_cmp.is_le",
+        "type": "alias"
+      },
+      "starkware.cairo.common.uint256.pow": {
+        "destination": "starkware.cairo.common.pow.pow",
+        "type": "alias"
+      },
+      "starkware.starknet.common.storage.ADDR_BOUND": {
+        "type": "const",
+        "value": -106710729501573572985208420194530329073740042555888586719489
+      },
+      "starkware.starknet.common.storage.MAX_STORAGE_ITEM_SIZE": {
+        "type": "const",
+        "value": 256
+      },
+      "starkware.starknet.common.storage.assert_250_bit": {
+        "destination": "starkware.cairo.common.math.assert_250_bit",
+        "type": "alias"
+      },
+      "starkware.starknet.common.syscalls.CALL_CONTRACT_SELECTOR": {
+        "type": "const",
+        "value": 20853273475220472486191784820
+      },
+      "starkware.starknet.common.syscalls.CallContract": {
+        "full_name": "starkware.starknet.common.syscalls.CallContract",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.CallContractRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.CallContractResponse",
+            "offset": 5
+          }
+        },
+        "size": 7,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.CallContractRequest": {
+        "full_name": "starkware.starknet.common.syscalls.CallContractRequest",
+        "members": {
+          "calldata": {
+            "cairo_type": "felt*",
+            "offset": 4
+          },
+          "calldata_size": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "contract_address": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "function_selector": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 5,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.CallContractResponse": {
+        "full_name": "starkware.starknet.common.syscalls.CallContractResponse",
+        "members": {
+          "retdata": {
+            "cairo_type": "felt*",
+            "offset": 1
+          },
+          "retdata_size": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.DELEGATE_CALL_SELECTOR": {
+        "type": "const",
+        "value": 21167594061783206823196716140
+      },
+      "starkware.starknet.common.syscalls.DELEGATE_L1_HANDLER_SELECTOR": {
+        "type": "const",
+        "value": 23274015802972845247556842986379118667122
+      },
+      "starkware.starknet.common.syscalls.DEPLOY_SELECTOR": {
+        "type": "const",
+        "value": 75202468540281
+      },
+      "starkware.starknet.common.syscalls.Deploy": {
+        "full_name": "starkware.starknet.common.syscalls.Deploy",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.DeployRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.DeployResponse",
+            "offset": 6
+          }
+        },
+        "size": 9,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.DeployRequest": {
+        "full_name": "starkware.starknet.common.syscalls.DeployRequest",
+        "members": {
+          "class_hash": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "constructor_calldata": {
+            "cairo_type": "felt*",
+            "offset": 4
+          },
+          "constructor_calldata_size": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "contract_address_salt": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "deploy_from_zero": {
+            "cairo_type": "felt",
+            "offset": 5
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 6,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.DeployResponse": {
+        "full_name": "starkware.starknet.common.syscalls.DeployResponse",
+        "members": {
+          "constructor_retdata": {
+            "cairo_type": "felt*",
+            "offset": 2
+          },
+          "constructor_retdata_size": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "contract_address": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 3,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.DictAccess": {
+        "destination": "starkware.cairo.common.dict_access.DictAccess",
+        "type": "alias"
+      },
+      "starkware.starknet.common.syscalls.EMIT_EVENT_SELECTOR": {
+        "type": "const",
+        "value": 1280709301550335749748
+      },
+      "starkware.starknet.common.syscalls.EmitEvent": {
+        "full_name": "starkware.starknet.common.syscalls.EmitEvent",
+        "members": {
+          "data": {
+            "cairo_type": "felt*",
+            "offset": 4
+          },
+          "data_len": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "keys": {
+            "cairo_type": "felt*",
+            "offset": 2
+          },
+          "keys_len": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 5,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GET_BLOCK_NUMBER_SELECTOR": {
+        "type": "const",
+        "value": 1448089106835523001438702345020786
+      },
+      "starkware.starknet.common.syscalls.GET_BLOCK_TIMESTAMP_SELECTOR": {
+        "type": "const",
+        "value": 24294903732626645868215235778792757751152
+      },
+      "starkware.starknet.common.syscalls.GET_CALLER_ADDRESS_SELECTOR": {
+        "type": "const",
+        "value": 94901967781393078444254803017658102643
+      },
+      "starkware.starknet.common.syscalls.GET_CONTRACT_ADDRESS_SELECTOR": {
+        "type": "const",
+        "value": 6219495360805491471215297013070624192820083
+      },
+      "starkware.starknet.common.syscalls.GET_SEQUENCER_ADDRESS_SELECTOR": {
+        "type": "const",
+        "value": 1592190833581991703053805829594610833820054387
+      },
+      "starkware.starknet.common.syscalls.GET_TX_INFO_SELECTOR": {
+        "type": "const",
+        "value": 1317029390204112103023
+      },
+      "starkware.starknet.common.syscalls.GET_TX_SIGNATURE_SELECTOR": {
+        "type": "const",
+        "value": 1448089128652340074717162277007973
+      },
+      "starkware.starknet.common.syscalls.GetBlockNumber": {
+        "full_name": "starkware.starknet.common.syscalls.GetBlockNumber",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetBlockNumberRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetBlockNumberResponse",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetBlockNumberRequest": {
+        "full_name": "starkware.starknet.common.syscalls.GetBlockNumberRequest",
+        "members": {
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetBlockNumberResponse": {
+        "full_name": "starkware.starknet.common.syscalls.GetBlockNumberResponse",
+        "members": {
+          "block_number": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetBlockTimestamp": {
+        "full_name": "starkware.starknet.common.syscalls.GetBlockTimestamp",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetBlockTimestampRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetBlockTimestampResponse",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetBlockTimestampRequest": {
+        "full_name": "starkware.starknet.common.syscalls.GetBlockTimestampRequest",
+        "members": {
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetBlockTimestampResponse": {
+        "full_name": "starkware.starknet.common.syscalls.GetBlockTimestampResponse",
+        "members": {
+          "block_timestamp": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetCallerAddress": {
+        "full_name": "starkware.starknet.common.syscalls.GetCallerAddress",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetCallerAddressRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetCallerAddressResponse",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetCallerAddressRequest": {
+        "full_name": "starkware.starknet.common.syscalls.GetCallerAddressRequest",
+        "members": {
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetCallerAddressResponse": {
+        "full_name": "starkware.starknet.common.syscalls.GetCallerAddressResponse",
+        "members": {
+          "caller_address": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetContractAddress": {
+        "full_name": "starkware.starknet.common.syscalls.GetContractAddress",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetContractAddressRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetContractAddressResponse",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetContractAddressRequest": {
+        "full_name": "starkware.starknet.common.syscalls.GetContractAddressRequest",
+        "members": {
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetContractAddressResponse": {
+        "full_name": "starkware.starknet.common.syscalls.GetContractAddressResponse",
+        "members": {
+          "contract_address": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetSequencerAddress": {
+        "full_name": "starkware.starknet.common.syscalls.GetSequencerAddress",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetSequencerAddressRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetSequencerAddressResponse",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetSequencerAddressRequest": {
+        "full_name": "starkware.starknet.common.syscalls.GetSequencerAddressRequest",
+        "members": {
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetSequencerAddressResponse": {
+        "full_name": "starkware.starknet.common.syscalls.GetSequencerAddressResponse",
+        "members": {
+          "sequencer_address": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetTxInfo": {
+        "full_name": "starkware.starknet.common.syscalls.GetTxInfo",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetTxInfoRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetTxInfoResponse",
+            "offset": 1
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetTxInfoRequest": {
+        "full_name": "starkware.starknet.common.syscalls.GetTxInfoRequest",
+        "members": {
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetTxInfoResponse": {
+        "full_name": "starkware.starknet.common.syscalls.GetTxInfoResponse",
+        "members": {
+          "tx_info": {
+            "cairo_type": "starkware.starknet.common.syscalls.TxInfo*",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetTxSignature": {
+        "full_name": "starkware.starknet.common.syscalls.GetTxSignature",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetTxSignatureRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.GetTxSignatureResponse",
+            "offset": 1
+          }
+        },
+        "size": 3,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetTxSignatureRequest": {
+        "full_name": "starkware.starknet.common.syscalls.GetTxSignatureRequest",
+        "members": {
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.GetTxSignatureResponse": {
+        "full_name": "starkware.starknet.common.syscalls.GetTxSignatureResponse",
+        "members": {
+          "signature": {
+            "cairo_type": "felt*",
+            "offset": 1
+          },
+          "signature_len": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.LIBRARY_CALL_L1_HANDLER_SELECTOR": {
+        "type": "const",
+        "value": 436233452754198157705746250789557519228244616562
+      },
+      "starkware.starknet.common.syscalls.LIBRARY_CALL_SELECTOR": {
+        "type": "const",
+        "value": 92376026794327011772951660
+      },
+      "starkware.starknet.common.syscalls.LibraryCall": {
+        "full_name": "starkware.starknet.common.syscalls.LibraryCall",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.LibraryCallRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.CallContractResponse",
+            "offset": 5
+          }
+        },
+        "size": 7,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.LibraryCallRequest": {
+        "full_name": "starkware.starknet.common.syscalls.LibraryCallRequest",
+        "members": {
+          "calldata": {
+            "cairo_type": "felt*",
+            "offset": 4
+          },
+          "calldata_size": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "class_hash": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "function_selector": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 5,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.REPLACE_CLASS_SELECTOR": {
+        "type": "const",
+        "value": 25500403217443378527601783667
+      },
+      "starkware.starknet.common.syscalls.ReplaceClass": {
+        "full_name": "starkware.starknet.common.syscalls.ReplaceClass",
+        "members": {
+          "class_hash": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.SEND_MESSAGE_TO_L1_SELECTOR": {
+        "type": "const",
+        "value": 433017908768303439907196859243777073
+      },
+      "starkware.starknet.common.syscalls.STORAGE_READ_SELECTOR": {
+        "type": "const",
+        "value": 100890693370601760042082660
+      },
+      "starkware.starknet.common.syscalls.STORAGE_WRITE_SELECTOR": {
+        "type": "const",
+        "value": 25828017502874050592466629733
+      },
+      "starkware.starknet.common.syscalls.SendMessageToL1SysCall": {
+        "full_name": "starkware.starknet.common.syscalls.SendMessageToL1SysCall",
+        "members": {
+          "payload_ptr": {
+            "cairo_type": "felt*",
+            "offset": 3
+          },
+          "payload_size": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "to_address": {
+            "cairo_type": "felt",
+            "offset": 1
+          }
+        },
+        "size": 4,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.StorageRead": {
+        "full_name": "starkware.starknet.common.syscalls.StorageRead",
+        "members": {
+          "request": {
+            "cairo_type": "starkware.starknet.common.syscalls.StorageReadRequest",
+            "offset": 0
+          },
+          "response": {
+            "cairo_type": "starkware.starknet.common.syscalls.StorageReadResponse",
+            "offset": 2
+          }
+        },
+        "size": 3,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.StorageReadRequest": {
+        "full_name": "starkware.starknet.common.syscalls.StorageReadRequest",
+        "members": {
+          "address": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 2,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.StorageReadResponse": {
+        "full_name": "starkware.starknet.common.syscalls.StorageReadResponse",
+        "members": {
+          "value": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.StorageWrite": {
+        "full_name": "starkware.starknet.common.syscalls.StorageWrite",
+        "members": {
+          "address": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "selector": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "value": {
+            "cairo_type": "felt",
+            "offset": 2
+          }
+        },
+        "size": 3,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.TxInfo": {
+        "full_name": "starkware.starknet.common.syscalls.TxInfo",
+        "members": {
+          "account_contract_address": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "chain_id": {
+            "cairo_type": "felt",
+            "offset": 6
+          },
+          "max_fee": {
+            "cairo_type": "felt",
+            "offset": 2
+          },
+          "nonce": {
+            "cairo_type": "felt",
+            "offset": 7
+          },
+          "signature": {
+            "cairo_type": "felt*",
+            "offset": 4
+          },
+          "signature_len": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "transaction_hash": {
+            "cairo_type": "felt",
+            "offset": 5
+          },
+          "version": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 8,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.get_block_timestamp": {
+        "decorators": [],
+        "pc": 14,
+        "type": "function"
+      },
+      "starkware.starknet.common.syscalls.get_block_timestamp.Args": {
+        "full_name": "starkware.starknet.common.syscalls.get_block_timestamp.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.get_block_timestamp.ImplicitArgs": {
+        "full_name": "starkware.starknet.common.syscalls.get_block_timestamp.ImplicitArgs",
+        "members": {
+          "syscall_ptr": {
+            "cairo_type": "felt*",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.get_block_timestamp.Return": {
+        "cairo_type": "(block_timestamp: felt)",
+        "type": "type_definition"
+      },
+      "starkware.starknet.common.syscalls.get_block_timestamp.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.starknet.common.syscalls.get_block_timestamp.syscall_ptr": {
+        "cairo_type": "felt*",
+        "full_name": "starkware.starknet.common.syscalls.get_block_timestamp.syscall_ptr",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 2,
+              "offset": 0
+            },
+            "pc": 14,
+            "value": "[cast(fp + (-3), felt**)]"
+          },
+          {
+            "ap_tracking_data": {
+              "group": 2,
+              "offset": 1
+            },
+            "pc": 17,
+            "value": "cast([fp + (-3)] + 2, felt*)"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.starknet.common.syscalls.get_caller_address": {
+        "decorators": [],
+        "pc": 0,
+        "type": "function"
+      },
+      "starkware.starknet.common.syscalls.get_caller_address.Args": {
+        "full_name": "starkware.starknet.common.syscalls.get_caller_address.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.get_caller_address.ImplicitArgs": {
+        "full_name": "starkware.starknet.common.syscalls.get_caller_address.ImplicitArgs",
+        "members": {
+          "syscall_ptr": {
+            "cairo_type": "felt*",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.get_caller_address.Return": {
+        "cairo_type": "(caller_address: felt)",
+        "type": "type_definition"
+      },
+      "starkware.starknet.common.syscalls.get_caller_address.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.starknet.common.syscalls.get_caller_address.syscall_ptr": {
+        "cairo_type": "felt*",
+        "full_name": "starkware.starknet.common.syscalls.get_caller_address.syscall_ptr",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 0,
+              "offset": 0
+            },
+            "pc": 0,
+            "value": "[cast(fp + (-3), felt**)]"
+          },
+          {
+            "ap_tracking_data": {
+              "group": 0,
+              "offset": 1
+            },
+            "pc": 3,
+            "value": "cast([fp + (-3)] + 2, felt*)"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.starknet.common.syscalls.get_contract_address": {
+        "decorators": [],
+        "pc": 7,
+        "type": "function"
+      },
+      "starkware.starknet.common.syscalls.get_contract_address.Args": {
+        "full_name": "starkware.starknet.common.syscalls.get_contract_address.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.get_contract_address.ImplicitArgs": {
+        "full_name": "starkware.starknet.common.syscalls.get_contract_address.ImplicitArgs",
+        "members": {
+          "syscall_ptr": {
+            "cairo_type": "felt*",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.get_contract_address.Return": {
+        "cairo_type": "(contract_address: felt)",
+        "type": "type_definition"
+      },
+      "starkware.starknet.common.syscalls.get_contract_address.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.starknet.common.syscalls.get_contract_address.syscall_ptr": {
+        "cairo_type": "felt*",
+        "full_name": "starkware.starknet.common.syscalls.get_contract_address.syscall_ptr",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 1,
+              "offset": 0
+            },
+            "pc": 7,
+            "value": "[cast(fp + (-3), felt**)]"
+          },
+          {
+            "ap_tracking_data": {
+              "group": 1,
+              "offset": 1
+            },
+            "pc": 10,
+            "value": "cast([fp + (-3)] + 2, felt*)"
+          }
+        ],
+        "type": "reference"
+      },
+      "starkware.starknet.common.syscalls.replace_class": {
+        "decorators": [],
+        "pc": 21,
+        "type": "function"
+      },
+      "starkware.starknet.common.syscalls.replace_class.Args": {
+        "full_name": "starkware.starknet.common.syscalls.replace_class.Args",
+        "members": {
+          "class_hash": {
+            "cairo_type": "felt",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.replace_class.ImplicitArgs": {
+        "full_name": "starkware.starknet.common.syscalls.replace_class.ImplicitArgs",
+        "members": {
+          "syscall_ptr": {
+            "cairo_type": "felt*",
+            "offset": 0
+          }
+        },
+        "size": 1,
+        "type": "struct"
+      },
+      "starkware.starknet.common.syscalls.replace_class.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "starkware.starknet.common.syscalls.replace_class.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "starkware.starknet.common.syscalls.replace_class.syscall_ptr": {
+        "cairo_type": "felt*",
+        "full_name": "starkware.starknet.common.syscalls.replace_class.syscall_ptr",
+        "references": [
+          {
+            "ap_tracking_data": {
+              "group": 3,
+              "offset": 0
+            },
+            "pc": 21,
+            "value": "[cast(fp + (-4), felt**)]"
+          },
+          {
+            "ap_tracking_data": {
+              "group": 3,
+              "offset": 1
+            },
+            "pc": 25,
+            "value": "cast([fp + (-4)] + 2, felt*)"
+          }
+        ],
+        "type": "reference"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel": {
+        "type": "namespace"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.Args": {
+        "full_name": "zklend.interfaces.IInterestRateModel.IInterestRateModel.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.GET_INTEREST_RATES_SELECTOR": {
+        "type": "const",
+        "value": 455220353483176534369941435542766720061057493749438085590025010640549334969
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.ImplicitArgs": {
+        "full_name": "zklend.interfaces.IInterestRateModel.IInterestRateModel.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.call_contract": {
+        "destination": "starkware.starknet.common.syscalls.call_contract",
+        "type": "alias"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.library_call": {
+        "destination": "starkware.starknet.common.syscalls.library_call",
+        "type": "alias"
+      },
+      "zklend.interfaces.IInterestRateModel.IInterestRateModel.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle": {
+        "type": "namespace"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.Args": {
+        "full_name": "zklend.interfaces.IPriceOracle.IPriceOracle.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.GET_PRICE_SELECTOR": {
+        "type": "const",
+        "value": 1108742030766127625244006846509579034896502624161618276319445682010159474408
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.GET_PRICE_WITH_TIME_SELECTOR": {
+        "type": "const",
+        "value": 269170620417296663789437533969673051041165916869322128250634873339423261262
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.ImplicitArgs": {
+        "full_name": "zklend.interfaces.IPriceOracle.IPriceOracle.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.call_contract": {
+        "destination": "starkware.starknet.common.syscalls.call_contract",
+        "type": "alias"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.library_call": {
+        "destination": "starkware.starknet.common.syscalls.library_call",
+        "type": "alias"
+      },
+      "zklend.interfaces.IPriceOracle.IPriceOracle.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.interfaces.IZToken.IZToken": {
+        "type": "namespace"
+      },
+      "zklend.interfaces.IZToken.IZToken.ALLOWANCE_SELECTOR": {
+        "type": "const",
+        "value": 863164345921111744606866654754108663958095967665259696902984674202985078753
+      },
+      "zklend.interfaces.IZToken.IZToken.APPROVE_SELECTOR": {
+        "type": "const",
+        "value": 949021990203918389843157787496164629863144228991510976554585288817234167820
+      },
+      "zklend.interfaces.IZToken.IZToken.Args": {
+        "full_name": "zklend.interfaces.IZToken.IZToken.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.IZToken.IZToken.BALANCEOF_SELECTOR": {
+        "type": "const",
+        "value": 1307730684388977109649524593492043083703013045633289330664425380824804018030
+      },
+      "zklend.interfaces.IZToken.IZToken.BURN_ALL_SELECTOR": {
+        "type": "const",
+        "value": 1558211854637964311315945780805155404606057211484335439665793195037522880141
+      },
+      "zklend.interfaces.IZToken.IZToken.BURN_SELECTOR": {
+        "type": "const",
+        "value": 110517590864022483288709273410208099989999878078159056510309951061542994625
+      },
+      "zklend.interfaces.IZToken.IZToken.DECIMALS_SELECTOR": {
+        "type": "const",
+        "value": 134830404806214277570220174593674215737759987247891306080029841794115377321
+      },
+      "zklend.interfaces.IZToken.IZToken.FELT_ALLOWANCE_SELECTOR": {
+        "type": "const",
+        "value": 142221988261712800851752552526361046731676462000884503073467264897769804832
+      },
+      "zklend.interfaces.IZToken.IZToken.FELT_APPROVE_SELECTOR": {
+        "type": "const",
+        "value": 577643244538513743936768831525336688675820317067653305061358680592072923386
+      },
+      "zklend.interfaces.IZToken.IZToken.FELT_BALANCE_OF_SELECTOR": {
+        "type": "const",
+        "value": 358889538360398389305154664748130459353612323801502412257776869327308802332
+      },
+      "zklend.interfaces.IZToken.IZToken.FELT_TOTAL_SUPPLY_SELECTOR": {
+        "type": "const",
+        "value": 1346117579881182592375122935387585243326674471147345973911523250308770436460
+      },
+      "zklend.interfaces.IZToken.IZToken.FELT_TRANSFER_FROM_SELECTOR": {
+        "type": "const",
+        "value": 1132185219217675615206016174065503380368913574913146806173546159286073920758
+      },
+      "zklend.interfaces.IZToken.IZToken.FELT_TRANSFER_SELECTOR": {
+        "type": "const",
+        "value": 83366274966434817682492092559284087627732704815627494419421882604561352825
+      },
+      "zklend.interfaces.IZToken.IZToken.GET_RAW_TOTAL_SUPPLY_SELECTOR": {
+        "type": "const",
+        "value": 1268589780617554311176533854233502576629298833007157787409858220393124556213
+      },
+      "zklend.interfaces.IZToken.IZToken.ImplicitArgs": {
+        "full_name": "zklend.interfaces.IZToken.IZToken.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.IZToken.IZToken.MINT_SELECTOR": {
+        "type": "const",
+        "value": 1329909728320632088402217562277154056711815095720684343816173432540100887380
+      },
+      "zklend.interfaces.IZToken.IZToken.MOVE_SELECTOR": {
+        "type": "const",
+        "value": 1006914996534709224607738575252571802087119588540572262759330458818632830651
+      },
+      "zklend.interfaces.IZToken.IZToken.NAME_SELECTOR": {
+        "type": "const",
+        "value": 1528802474226268325865027367859591458315299653151958663884057507666229546336
+      },
+      "zklend.interfaces.IZToken.IZToken.RENOUNCE_OWNERSHIP_SELECTOR": {
+        "type": "const",
+        "value": 9093068627960741026578080905615017765432958716527183167138843608760288861
+      },
+      "zklend.interfaces.IZToken.IZToken.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.interfaces.IZToken.IZToken.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.interfaces.IZToken.IZToken.SYMBOL_SELECTOR": {
+        "type": "const",
+        "value": 944713526212149105522785400348068751682982210605126537021911324578866405028
+      },
+      "zklend.interfaces.IZToken.IZToken.TOTALSUPPLY_SELECTOR": {
+        "type": "const",
+        "value": 227334030968744315992796982100494617316223563777432855541120004521101595501
+      },
+      "zklend.interfaces.IZToken.IZToken.TRANSFERFROM_SELECTOR": {
+        "type": "const",
+        "value": 116061167288211781254449158074459916871457383008289084697957612485591092000
+      },
+      "zklend.interfaces.IZToken.IZToken.TRANSFER_ALL_SELECTOR": {
+        "type": "const",
+        "value": 86795992304028648234253396602244411934440089719536246891754357106659507470
+      },
+      "zklend.interfaces.IZToken.IZToken.TRANSFER_OWNERSHIP_SELECTOR": {
+        "type": "const",
+        "value": 1193913221996100586630682738210637098446332112132923139134524553775904843594
+      },
+      "zklend.interfaces.IZToken.IZToken.TRANSFER_SELECTOR": {
+        "type": "const",
+        "value": 232670485425082704932579856502088130646006032362877466777181098476241604910
+      },
+      "zklend.interfaces.IZToken.IZToken.UNDERLYING_TOKEN_SELECTOR": {
+        "type": "const",
+        "value": 519083718687994075920436705214234141306290175879929704799578328782315865262
+      },
+      "zklend.interfaces.IZToken.IZToken.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.interfaces.IZToken.IZToken.call_contract": {
+        "destination": "starkware.starknet.common.syscalls.call_contract",
+        "type": "alias"
+      },
+      "zklend.interfaces.IZToken.IZToken.library_call": {
+        "destination": "starkware.starknet.common.syscalls.library_call",
+        "type": "alias"
+      },
+      "zklend.interfaces.IZToken.IZToken.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.interfaces.IZToken.Uint256": {
+        "destination": "starkware.cairo.common.uint256.Uint256",
+        "type": "alias"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback": {
+        "type": "namespace"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.Args": {
+        "full_name": "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.ImplicitArgs": {
+        "full_name": "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.ZKLEND_FLASH_CALLBACK_SELECTOR": {
+        "type": "const",
+        "value": 215518133054288348959737990117468153024806132725720341578714157087274833654
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.call_contract": {
+        "destination": "starkware.starknet.common.syscalls.call_contract",
+        "type": "alias"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.library_call": {
+        "destination": "starkware.starknet.common.syscalls.library_call",
+        "type": "alias"
+      },
+      "zklend.interfaces.callback.IZklendFlashCallback.IZklendFlashCallback.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.AccumulatorsSync": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.Args": {
+        "full_name": "zklend.internals.Market.events.AccumulatorsSync.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.AccumulatorsSync.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.SELECTOR": {
+        "type": "const",
+        "value": 1378426563830971848977606379138108629520586405874864382742832486118711105498
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.AccumulatorsSync.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Borrowing": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.Borrowing.Args": {
+        "full_name": "zklend.internals.Market.events.Borrowing.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Borrowing.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.Borrowing.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Borrowing.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.Borrowing.SELECTOR": {
+        "type": "const",
+        "value": 442150749710818778059430935486738358608566890420557042714133150282782342977
+      },
+      "zklend.internals.Market.events.Borrowing.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.Borrowing.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Borrowing.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Borrowing.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.CollateralDisabled": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.CollateralDisabled.Args": {
+        "full_name": "zklend.internals.Market.events.CollateralDisabled.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.CollateralDisabled.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.CollateralDisabled.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.CollateralDisabled.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.CollateralDisabled.SELECTOR": {
+        "type": "const",
+        "value": 441006516232511486302323746578305948267198210726045935580082396378864957526
+      },
+      "zklend.internals.Market.events.CollateralDisabled.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.CollateralDisabled.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.CollateralDisabled.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.CollateralDisabled.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.CollateralEnabled": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.CollateralEnabled.Args": {
+        "full_name": "zklend.internals.Market.events.CollateralEnabled.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.CollateralEnabled.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.CollateralEnabled.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.CollateralEnabled.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.CollateralEnabled.SELECTOR": {
+        "type": "const",
+        "value": 993412424245438389370158552454854726882852002067639505685168136957112595301
+      },
+      "zklend.internals.Market.events.CollateralEnabled.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.CollateralEnabled.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.CollateralEnabled.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.CollateralEnabled.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.ContractUpgraded": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.ContractUpgraded.Args": {
+        "full_name": "zklend.internals.Market.events.ContractUpgraded.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.ContractUpgraded.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.ContractUpgraded.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.ContractUpgraded.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.ContractUpgraded.SELECTOR": {
+        "type": "const",
+        "value": 230192814789850291994621760810535338129013919481720626953423731987611497567
+      },
+      "zklend.internals.Market.events.ContractUpgraded.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.ContractUpgraded.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.ContractUpgraded.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.ContractUpgraded.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.Args": {
+        "full_name": "zklend.internals.Market.events.DebtLimitUpdate.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.DebtLimitUpdate.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.SELECTOR": {
+        "type": "const",
+        "value": 1720057640007030628132527857912572919816818946741802611568991520713651095915
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.DebtLimitUpdate.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Deposit": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.Deposit.Args": {
+        "full_name": "zklend.internals.Market.events.Deposit.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Deposit.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.Deposit.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Deposit.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.Deposit.SELECTOR": {
+        "type": "const",
+        "value": 256702315380875556620535413554505018969076471135601079992472732711650693874
+      },
+      "zklend.internals.Market.events.Deposit.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.Deposit.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Deposit.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Deposit.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.FlashLoan": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.FlashLoan.Args": {
+        "full_name": "zklend.internals.Market.events.FlashLoan.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.FlashLoan.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.FlashLoan.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.FlashLoan.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.FlashLoan.SELECTOR": {
+        "type": "const",
+        "value": 1416231400592692939236244835827638548588934883450953327719606725533757640643
+      },
+      "zklend.internals.Market.events.FlashLoan.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.FlashLoan.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.FlashLoan.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.FlashLoan.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.InterestRatesSync": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.InterestRatesSync.Args": {
+        "full_name": "zklend.internals.Market.events.InterestRatesSync.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.InterestRatesSync.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.InterestRatesSync.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.InterestRatesSync.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.InterestRatesSync.SELECTOR": {
+        "type": "const",
+        "value": 287965086723448956804891533388970477831301005018556230656991124796323427942
+      },
+      "zklend.internals.Market.events.InterestRatesSync.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.InterestRatesSync.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.InterestRatesSync.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.InterestRatesSync.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Liquidation": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.Liquidation.Args": {
+        "full_name": "zklend.internals.Market.events.Liquidation.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Liquidation.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.Liquidation.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Liquidation.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.Liquidation.SELECTOR": {
+        "type": "const",
+        "value": 1004689575290523089480265033644810625213175352109340690572687136992269442551
+      },
+      "zklend.internals.Market.events.Liquidation.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.Liquidation.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Liquidation.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Liquidation.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.NewReserve": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.NewReserve.Args": {
+        "full_name": "zklend.internals.Market.events.NewReserve.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.NewReserve.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.NewReserve.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.NewReserve.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.NewReserve.SELECTOR": {
+        "type": "const",
+        "value": 1730948101005502655285429422585220084609892602495806310367166381734388477524
+      },
+      "zklend.internals.Market.events.NewReserve.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.NewReserve.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.NewReserve.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.NewReserve.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Repayment": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.Repayment.Args": {
+        "full_name": "zklend.internals.Market.events.Repayment.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Repayment.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.Repayment.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Repayment.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.Repayment.SELECTOR": {
+        "type": "const",
+        "value": 217105956012346273087894466348695736659107663411053218344978460328093406318
+      },
+      "zklend.internals.Market.events.Repayment.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.Repayment.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Repayment.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Repayment.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.TreasuryUpdate": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.Args": {
+        "full_name": "zklend.internals.Market.events.TreasuryUpdate.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.TreasuryUpdate.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.SELECTOR": {
+        "type": "const",
+        "value": 385520069402442334410230094948437933794636264819052738846034300944366316376
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.TreasuryUpdate.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Withdrawal": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.events.Withdrawal.Args": {
+        "full_name": "zklend.internals.Market.events.Withdrawal.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Withdrawal.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.events.Withdrawal.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.events.Withdrawal.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.events.Withdrawal.SELECTOR": {
+        "type": "const",
+        "value": 82914080208844212597819227564262823606818782755640229424094315079576599976
+      },
+      "zklend.internals.Market.events.Withdrawal.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.events.Withdrawal.alloc": {
+        "destination": "starkware.cairo.common.alloc.alloc",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Withdrawal.emit_event": {
+        "destination": "starkware.starknet.common.syscalls.emit_event",
+        "type": "alias"
+      },
+      "zklend.internals.Market.events.Withdrawal.memcpy": {
+        "destination": "starkware.cairo.common.memcpy.memcpy",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.Structs": {
+        "destination": "zklend.internals.Market.structs.Structs",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.oracle": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.oracle.Args": {
+        "full_name": "zklend.internals.Market.storage.oracle.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.oracle.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.oracle.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.oracle.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.oracle.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.oracle.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.oracle.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.oracle.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.oracle.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.oracle.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.raw_user_debts": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.Args": {
+        "full_name": "zklend.internals.Market.storage.raw_user_debts.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.raw_user_debts.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.raw_user_debts.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.raw_user_debts.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_count": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.reserve_count.Args": {
+        "full_name": "zklend.internals.Market.storage.reserve_count.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserve_count.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_count.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.reserve_count.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserve_count.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.reserve_count.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.reserve_count.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_count.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_count.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_count.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_indices": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.reserve_indices.Args": {
+        "full_name": "zklend.internals.Market.storage.reserve_indices.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserve_indices.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_indices.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.reserve_indices.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserve_indices.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.reserve_indices.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.reserve_indices.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_indices.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_indices.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_indices.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_tokens": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.Args": {
+        "full_name": "zklend.internals.Market.storage.reserve_tokens.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.reserve_tokens.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.reserve_tokens.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserve_tokens.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserves": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.reserves.Args": {
+        "full_name": "zklend.internals.Market.storage.reserves.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserves.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserves.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.reserves.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.reserves.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.reserves.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.reserves.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserves.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserves.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.reserves.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.treasury": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.treasury.Args": {
+        "full_name": "zklend.internals.Market.storage.treasury.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.treasury.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.treasury.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.treasury.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.treasury.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.treasury.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.treasury.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.treasury.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.treasury.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.treasury.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.user_flags": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.storage.user_flags.Args": {
+        "full_name": "zklend.internals.Market.storage.user_flags.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.user_flags.HashBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.user_flags.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.storage.user_flags.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.storage.user_flags.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.storage.user_flags.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.internals.Market.storage.user_flags.hash2": {
+        "destination": "starkware.cairo.common.hash.hash2",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.user_flags.normalize_address": {
+        "destination": "starkware.starknet.common.storage.normalize_address",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.user_flags.storage_read": {
+        "destination": "starkware.starknet.common.syscalls.storage_read",
+        "type": "alias"
+      },
+      "zklend.internals.Market.storage.user_flags.storage_write": {
+        "destination": "starkware.starknet.common.syscalls.storage_write",
+        "type": "alias"
+      },
+      "zklend.internals.Market.structs.Structs": {
+        "type": "namespace"
+      },
+      "zklend.internals.Market.structs.Structs.Args": {
+        "full_name": "zklend.internals.Market.structs.Structs.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.structs.Structs.ImplicitArgs": {
+        "full_name": "zklend.internals.Market.structs.Structs.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.internals.Market.structs.Structs.ReserveData": {
+        "full_name": "zklend.internals.Market.structs.Structs.ReserveData",
+        "members": {
+          "borrow_factor": {
+            "cairo_type": "felt",
+            "offset": 5
+          },
+          "collateral_factor": {
+            "cairo_type": "felt",
+            "offset": 4
+          },
+          "current_borrowing_rate": {
+            "cairo_type": "felt",
+            "offset": 11
+          },
+          "current_lending_rate": {
+            "cairo_type": "felt",
+            "offset": 10
+          },
+          "debt_accumulator": {
+            "cairo_type": "felt",
+            "offset": 9
+          },
+          "debt_limit": {
+            "cairo_type": "felt",
+            "offset": 15
+          },
+          "decimals": {
+            "cairo_type": "felt",
+            "offset": 1
+          },
+          "enabled": {
+            "cairo_type": "felt",
+            "offset": 0
+          },
+          "flash_loan_fee": {
+            "cairo_type": "felt",
+            "offset": 13
+          },
+          "interest_rate_model": {
+            "cairo_type": "felt",
+            "offset": 3
+          },
+          "last_update_timestamp": {
+            "cairo_type": "felt",
+            "offset": 7
+          },
+          "lending_accumulator": {
+            "cairo_type": "felt",
+            "offset": 8
+          },
+          "liquidation_bonus": {
+            "cairo_type": "felt",
+            "offset": 14
+          },
+          "raw_total_debt": {
+            "cairo_type": "felt",
+            "offset": 12
+          },
+          "reserve_factor": {
+            "cairo_type": "felt",
+            "offset": 6
+          },
+          "z_token_address": {
+            "cairo_type": "felt",
+            "offset": 2
+          }
+        },
+        "size": 16,
+        "type": "struct"
+      },
+      "zklend.internals.Market.structs.Structs.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.internals.Market.structs.Structs.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.libraries.Math.BitwiseBuiltin": {
+        "destination": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin",
+        "type": "alias"
+      },
+      "zklend.libraries.Math.Math": {
+        "type": "namespace"
+      },
+      "zklend.libraries.Math.Math.Args": {
+        "full_name": "zklend.libraries.Math.Math.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.Math.Math.ImplicitArgs": {
+        "full_name": "zklend.libraries.Math.Math.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.Math.Math.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.libraries.Math.Math.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.libraries.Math.SafeCast": {
+        "destination": "zklend.libraries.SafeCast.SafeCast",
+        "type": "alias"
+      },
+      "zklend.libraries.Math.SafeMath": {
+        "destination": "zklend.libraries.SafeMath.SafeMath",
+        "type": "alias"
+      },
+      "zklend.libraries.Math.Uint256": {
+        "destination": "starkware.cairo.common.uint256.Uint256",
+        "type": "alias"
+      },
+      "zklend.libraries.Math.bitwise_and": {
+        "destination": "starkware.cairo.common.bitwise.bitwise_and",
+        "type": "alias"
+      },
+      "zklend.libraries.Math.is_le_felt": {
+        "destination": "starkware.cairo.common.math_cmp.is_le_felt",
+        "type": "alias"
+      },
+      "zklend.libraries.Math.pow": {
+        "destination": "starkware.cairo.common.pow.pow",
+        "type": "alias"
+      },
+      "zklend.libraries.Math.uint256_mul": {
+        "destination": "starkware.cairo.common.uint256.uint256_mul",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeCast.SafeCast": {
+        "type": "namespace"
+      },
+      "zklend.libraries.SafeCast.SafeCast.Args": {
+        "full_name": "zklend.libraries.SafeCast.SafeCast.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.SafeCast.SafeCast.ImplicitArgs": {
+        "full_name": "zklend.libraries.SafeCast.SafeCast.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.SafeCast.SafeCast.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.libraries.SafeCast.SafeCast.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.libraries.SafeCast.Uint256": {
+        "destination": "starkware.cairo.common.uint256.Uint256",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeCast.assert_le": {
+        "destination": "starkware.cairo.common.math.assert_le",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeCast.split_felt": {
+        "destination": "starkware.cairo.common.math.split_felt",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeCast.uint256_check": {
+        "destination": "starkware.cairo.common.uint256.uint256_check",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeDecimalMath.SCALE": {
+        "type": "const",
+        "value": 1000000000000000000000000000
+      },
+      "zklend.libraries.SafeDecimalMath.SafeDecimalMath": {
+        "type": "namespace"
+      },
+      "zklend.libraries.SafeDecimalMath.SafeDecimalMath.Args": {
+        "full_name": "zklend.libraries.SafeDecimalMath.SafeDecimalMath.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.SafeDecimalMath.SafeDecimalMath.ImplicitArgs": {
+        "full_name": "zklend.libraries.SafeDecimalMath.SafeDecimalMath.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.SafeDecimalMath.SafeDecimalMath.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.libraries.SafeDecimalMath.SafeDecimalMath.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.libraries.SafeDecimalMath.SafeMath": {
+        "destination": "zklend.libraries.SafeMath.SafeMath",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeDecimalMath.assert_le_felt": {
+        "destination": "starkware.cairo.common.math.assert_le_felt",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeDecimalMath.pow": {
+        "destination": "starkware.cairo.common.pow.pow",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeMath.SafeCast": {
+        "destination": "zklend.libraries.SafeCast.SafeCast",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeMath.SafeMath": {
+        "type": "namespace"
+      },
+      "zklend.libraries.SafeMath.SafeMath.Args": {
+        "full_name": "zklend.libraries.SafeMath.SafeMath.Args",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.SafeMath.SafeMath.ImplicitArgs": {
+        "full_name": "zklend.libraries.SafeMath.SafeMath.ImplicitArgs",
+        "members": {},
+        "size": 0,
+        "type": "struct"
+      },
+      "zklend.libraries.SafeMath.SafeMath.Return": {
+        "cairo_type": "()",
+        "type": "type_definition"
+      },
+      "zklend.libraries.SafeMath.SafeMath.SIZEOF_LOCALS": {
+        "type": "const",
+        "value": 0
+      },
+      "zklend.libraries.SafeMath.assert_le_felt": {
+        "destination": "starkware.cairo.common.math.assert_le_felt",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeMath.assert_not_zero": {
+        "destination": "starkware.cairo.common.math.assert_not_zero",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeMath.uint256_mul": {
+        "destination": "starkware.cairo.common.uint256.uint256_mul",
+        "type": "alias"
+      },
+      "zklend.libraries.SafeMath.uint256_unsigned_div_rem": {
+        "destination": "starkware.cairo.common.uint256.uint256_unsigned_div_rem",
+        "type": "alias"
+      }
+    },
+    "main_scope": "__main__",
+    "prime": "0x800000000000011000000000000000000000000000000000000000000000001",
+    "reference_manager": {
+      "references": [
+        {
+          "ap_tracking_data": {
+            "group": 0,
+            "offset": 0
+          },
+          "pc": 0,
+          "value": "[cast(fp + (-3), felt**)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 1,
+            "offset": 0
+          },
+          "pc": 7,
+          "value": "[cast(fp + (-3), felt**)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 2,
+            "offset": 0
+          },
+          "pc": 14,
+          "value": "[cast(fp + (-3), felt**)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 3,
+            "offset": 0
+          },
+          "pc": 21,
+          "value": "[cast(fp + (-4), felt**)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 4,
+            "offset": 0
+          },
+          "pc": 28,
+          "value": "[cast(fp + (-3), felt*)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 5,
+            "offset": 0
+          },
+          "pc": 33,
+          "value": "[cast(fp + (-4), felt*)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 5,
+            "offset": 0
+          },
+          "pc": 33,
+          "value": "[cast(fp + (-3), felt*)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 5,
+            "offset": 0
+          },
+          "pc": 33,
+          "value": "[cast(fp + (-5), felt*)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 6,
+            "offset": 0
+          },
+          "pc": 78,
+          "value": "[cast(fp + (-4), felt*)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 6,
+            "offset": 0
+          },
+          "pc": 78,
+          "value": "[cast(fp + (-3), felt*)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 11,
+            "offset": 0
+          },
+          "pc": 113,
+          "value": "[cast(fp + (-4), felt*)]"
+        },
+        {
+          "ap_tracking_data": {
+            "group": 11,
+            "offset": 0
+          },
+          "pc": 113,
+          "value": "[cast(fp + (-3), felt*)]"
+        }
+      ]
+    }
+  }
+}
